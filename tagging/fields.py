@@ -1,6 +1,7 @@
 """
 A custom Model Field for tagging.
 """
+from django.db import ProgrammingError
 from django.db.models import signals
 from django.db.models.fields import CharField
 from django.utils.translation import ugettext_lazy as _
