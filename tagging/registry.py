@@ -1,8 +1,8 @@
 """
 Registery for tagging.
 """
-from tagging.managers import TagDescriptor
 from tagging.managers import ModelTaggedItemManager
+from tagging.managers import TagDescriptor
 
 registry = []
 

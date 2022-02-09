@@ -1,20 +1,19 @@
 """
 Models and managers for tagging.
 """
-from django.db import models
-from django.db import connection
-from django.utils.encoding import smart_text
-from django.utils.encoding import python_2_unicode_compatible
-from django.utils.translation import ugettext_lazy as _
-from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+from django.db import connection
+from django.db import models
+from django.utils.encoding import smart_text
+from django.utils.translation import gettext_lazy as _
 
 from tagging import settings
 from tagging.utils import LOGARITHMIC
-from tagging.utils import get_tag_list
 from tagging.utils import calculate_cloud
-from tagging.utils import parse_tag_input
 from tagging.utils import get_queryset_and_model
+from tagging.utils import get_tag_list
+from tagging.utils import parse_tag_input
 
 
 qn = connection.ops.quote_name
@@ -435,12 +434,8 @@ class TaggedItemManager(models.Manager):
         GROUP BY %(model_pk)s
         ORDER BY %(count)s DESC
         %(limit_offset)s"""
-        try:
-            tagging_table = qn(self.model._meta.get_field(
-                'tag').remote_field.model._meta.db_table)
-        except AttributeError:  # Django < 1.9
-            tagging_table = qn(self.model._meta.get_field(
-                'tag').rel.to._meta.db_table)
+        tagging_table = qn(self.model._meta.get_field(
+            'tag').remote_field.model._meta.db_table)
         query = query % {
             'model_pk': '%s.%s' % (model_table, qn(model._meta.pk.column)),
             'count': qn('count'),
@@ -474,7 +469,6 @@ class TaggedItemManager(models.Manager):
 # Models #
 ##########
 
-@python_2_unicode_compatible
 class Tag(models.Model):
     """
     A tag.
@@ -494,7 +488,6 @@ class Tag(models.Model):
         return self.name
 
 
-@python_2_unicode_compatible
 class TaggedItem(models.Model):
     """
     Holds the relationship between a tag and the item being tagged.

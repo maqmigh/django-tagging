@@ -1,15 +1,15 @@
 """
 Tagging related views.
 """
-from django.http import Http404
-from django.views.generic.list import ListView
-from django.utils.translation import ugettext as _
 from django.core.exceptions import ImproperlyConfigured
+from django.http import Http404
+from django.utils.translation import gettext as _
+from django.views.generic.list import ListView
 
 from tagging.models import Tag
 from tagging.models import TaggedItem
-from tagging.utils import get_tag
 from tagging.utils import get_queryset_and_model
+from tagging.utils import get_tag
 
 
 class TaggedObjectList(ListView):

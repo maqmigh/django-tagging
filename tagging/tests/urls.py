@@ -1,8 +1,8 @@
 """Test urls for tagging."""
 from django.conf.urls import url
 
-from tagging.views import TaggedObjectList
 from tagging.tests.models import Article
+from tagging.views import TaggedObjectList
 
 
 class StaticTaggedObjectList(TaggedObjectList):

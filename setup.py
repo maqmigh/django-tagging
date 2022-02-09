@@ -1,8 +1,8 @@
 """
 Based entirely on Django's own ``setup.py``.
 """
-from setuptools import setup
 from setuptools import find_packages
+from setuptools import setup
 
 import tagging
 
@@ -34,8 +34,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Topic :: Utilities',
         'Topic :: Software Development :: Libraries :: Python Modules']
