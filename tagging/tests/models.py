@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 
 from tagging.fields import TagField
 
@@ -9,7 +8,6 @@ class Perch(models.Model):
     smelly = models.BooleanField(default=True)
 
 
-@python_2_unicode_compatible
 class Parrot(models.Model):
     state = models.CharField(max_length=50)
     perch = models.ForeignKey(Perch, null=True,
@@ -22,7 +20,6 @@ class Parrot(models.Model):
         ordering = ['state']
 
 
-@python_2_unicode_compatible
 class Link(models.Model):
     name = models.CharField(max_length=50)
 
@@ -33,7 +30,6 @@ class Link(models.Model):
         ordering = ['name']
 
 
-@python_2_unicode_compatible
 class Article(models.Model):
     name = models.CharField(max_length=50)
 

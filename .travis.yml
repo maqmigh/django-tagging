@@ -1,21 +1,24 @@
 language: python
 python:
-    - 2.7
-    - 3.5
+    - 3.7
+    - 3.8
+services:
+    - postgresql
+    - mysql
 env:
-    - DJANGO=1.8 DATABASE_ENGINE=sqlite
-    - DJANGO=1.8 DATABASE_ENGINE=postgres
-    - DJANGO=1.8 DATABASE_ENGINE=mysql
-    - DJANGO=1.9 DATABASE_ENGINE=sqlite
-    - DJANGO=1.9 DATABASE_ENGINE=postgres
-    - DJANGO=1.9 DATABASE_ENGINE=mysql
-    - DJANGO=1.10 DATABASE_ENGINE=sqlite
-    - DJANGO=1.10 DATABASE_ENGINE=postgres
-    - DJANGO=1.10 DATABASE_ENGINE=mysql
+    - DJANGO=1.11 DATABASE_ENGINE=sqlite
+    - DJANGO=1.11 DATABASE_ENGINE=postgres
+    - DJANGO=1.11 DATABASE_ENGINE=mysql
+    - DJANGO=2.2 DATABASE_ENGINE=sqlite
+    - DJANGO=2.2 DATABASE_ENGINE=postgres
+    - DJANGO=2.2 DATABASE_ENGINE=mysql
+    - DJANGO=3.0 DATABASE_ENGINE=sqlite
+    - DJANGO=3.0 DATABASE_ENGINE=postgres
+    - DJANGO=3.0 DATABASE_ENGINE=mysql
+
 install:
-    - pip install -U setuptools
-    - python bootstrap.py
-    - ./bin/buildout versions:django=$DJANGO
+    - pip install -U setuptools zc.buildout
+    - buildout versions:django=$DJANGO
     - sh -c "if [ '$DATABASE_ENGINE' = 'postgres' ];
       then
         pip install psycopg2;

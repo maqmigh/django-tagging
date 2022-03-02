@@ -1,8 +1,8 @@
 """
 Custom managers for tagging.
 """
-from django.db import models
 from django.contrib.contenttypes.models import ContentType
+from django.db import models
 
 from tagging.models import Tag
 from tagging.models import TaggedItem
