@@ -56,7 +56,6 @@ class TagField(CharField):
             try:
                 return edit_string_for_tags(Tag.objects.usage_for_model(owner))
             except ProgrammingError:
-                print("Tagging just made a ProgrammingError... we're ignoring it.")
                 return
 
         tags = self._get_instance_tag_cache(instance)
