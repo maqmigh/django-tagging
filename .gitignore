@@ -1,1 +1,9 @@
+bin/
+.coverage
+develop-eggs/
+django_tagging.egg-info/
 docs/_build
+eggs/
+.installed.cfg
+__pycache__
+.tox/

@@ -11,7 +11,7 @@ setup(
     version=tagging.__version__,
 
     description='Generic tagging application for Django',
-    long_description='\n'.join([open('README.rst').read(),
+    long_description='\n'.join([open('README.md').read(),
                                 open('CHANGELOG.txt').read()]),
     keywords='django, tag, tagging',
 

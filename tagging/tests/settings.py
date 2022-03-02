@@ -17,16 +17,18 @@ if DATABASE_ENGINE == 'postgres':
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'tagging',
             'USER': 'postgres',
-            'HOST': 'localhost'
+            'PASSWORD': 'postgres',
+            'HOST': 'postgres'
         }
     }
 elif DATABASE_ENGINE == 'mysql':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'zinnia',
+            'NAME': 'tagging',
             'USER': 'root',
-            'HOST': 'localhost',
+            'PASSWORD': 'mysql',
+            'HOST': 'mysql',
             'TEST': {
                 'COLLATION': 'utf8_general_ci'
             }
