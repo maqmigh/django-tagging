@@ -5,7 +5,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import connection
 from django.db import models
-from django.utils.encoding import smart_text
+from django.utils.encoding import smart_str
 from django.utils.translation import gettext_lazy as _
 
 from tagging import settings
@@ -519,4 +519,4 @@ class TaggedItem(models.Model):
         verbose_name_plural = _('tagged items')
 
     def __str__(self):
-        return '%s [%s]' % (smart_text(self.object), smart_text(self.tag))
+        return '%s [%s]' % (smart_str(self.object), smart_text(self.tag))
